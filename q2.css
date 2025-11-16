@@ -1,0 +1,43 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f0f0f0;
+  margin: 0;
+}
+
+.main-box {
+  width: 300px;
+  background: #cbb7ea;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.main-box h2 {
+  margin-bottom: 20px;
+  color: #2a2359;
+  font-size: 22px;
+}
+
+.info-box {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 15px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.info-box p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.info-box h1 {
+  margin: 10px 0 0;
+  font-size: 28px;
+  font-weight: bold;
+}
