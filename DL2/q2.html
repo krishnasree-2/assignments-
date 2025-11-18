@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primary Class Weekly Schedule</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f0f8ff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #4b0082;
+            margin-bottom: 20px;
+            font-size: 3.5em;
+            font-weight: 700;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 80px repeat(5, 1fr);
+            grid-template-rows: auto repeat(10, 50px);
+            max-width: 900px;
+            margin: 0 auto;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .cell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            font-size: 0.9em;
+            font-weight: 600;
+            border-radius: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            color: #333;
+        }
+
+        .day-header {
+            background-color: #fceb9c;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-transform: uppercase;
+        }
+
+        .time-header {
+            background-color: #b0e0e6;
+            font-weight: bold;
+        }
+
+        .cell.pink-bg {
+            background-color: #ffc0cb;
+        }
+
+        .cell.yellow-bg {
+            background-color: #fffacd;
+        }
+
+        .note-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #b0e0e6;
+            text-align: left;
+            border-radius: 15px;
+            font-size: 1em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .note-text {
+            color: #4b0082;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Weekly schedule</h1>
+
+    <div class="schedule-grid">
+        <div class="cell"></div>
+
+        <div class="cell day-header">Monday</div>
+        <div class="cell day-header">Tuesday</div>
+        <div class="cell day-header">Wednesday</div>
+        <div class="cell day-header">Thursday</div>
+        <div class="cell day-header">Friday</div>
+
+        <div class="cell time-header">08:00</div>
+        <div class="cell pink-bg">English</div>
+        <div class="cell yellow-bg">Maths</div>
+        <div class="cell pink-bg">Science</div>
+        <div class="cell yellow-bg">PT</div>
+        <div class="cell pink-bg">Assembly</div>
+
+        <div class="cell time-header">09:00</div>
+        <div class="cell pink-bg">Maths</div>
+        <div class="cell yellow-bg">English</div>
+        <div class="cell pink-bg">Hindi</div>
+        <div class="cell yellow-bg">Art</div>
+        <div class="cell pink-bg">Maths</div>
+
+        <div class="cell time-header">10:00</div>
+        <div class="cell pink-bg">Science</div>
+        <div class="cell yellow-bg">History</div>
+        <div class="cell pink-bg">English</div>
+        <div class="cell yellow-bg">Maths</div>
+        <div class="cell pink-bg">EVS</div>
+
+        <div class="cell time-header">11:00</div>
+        <div class="cell pink-bg">BREAK</div>
+        <div class="cell yellow-bg">BREAK</div>
+        <div class="cell pink-bg">BREAK</div>
+        <div class="cell yellow-bg">BREAK</div>
+        <div class="cell pink-bg">BREAK</div>
+
+        <div class="cell time-header">12:00</div>
+        <div class="cell pink-bg">Hindi</div>
+        <div class="cell yellow-bg">Science</div>
+        <div class="cell pink-bg">Computer</div>
+        <div class="cell yellow-bg">English</div>
+        <div class="cell pink-bg">Drawing</div>
+
+        <div class="cell time-header">13:00</div>
+        <div class="cell pink-bg">LUNCH</div>
+        <div class="cell yellow-bg">LUNCH</div>
+        <div class="cell pink-bg">LUNCH</div>
+        <div class="cell yellow-bg">LUNCH</div>
+        <div class="cell pink-bg">LUNCH</div>
+
+        <div class="cell time-header">14:00</div>
+        <div class="cell pink-bg">Library</div>
+        <div class="cell yellow-bg">PT</div>
+        <div class="cell pink-bg">History</div>
+        <div class="cell yellow-bg">Music</div>
+        <div class="cell pink-bg">Quiz</div>
+
+        <div class="cell time-header">15:00</div>
+        <div class="cell pink-bg">Maths Lab</div>
+        <div class="cell yellow-bg">GK</div>
+        <div class="cell pink-bg">Social Studies</div>
+        <div class="cell yellow-bg">Science</div>
+        <div class="cell pink-bg">Revision</div>
+
+        <div class="cell time-header">16:00</div>
+        <div class="cell pink-bg">Homework</div>
+        <div class="cell yellow-bg">Reading</div>
+        <div class="cell pink-bg">Extra Cur.</div>
+        <div class="cell yellow-bg">Exam</div>
+        <div class="cell pink-bg">P.T</div>
+
+        <div class="cell time-header">17:00</div>
+        <div class="cell pink-bg">Games</div>
+        <div class="cell yellow-bg">Doubt Class</div>
+        <div class="cell pink-bg">Study Hour</div>
+        <div class="cell yellow-bg">Cleanup</div>
+        <div class="cell pink-bg">Dismissal</div>
+
+    </div>
+
+    <div class="note-container">
+        <span class="note-text">Note:</span> Please bring your PT kit on Tuesday and Friday. Library books must be returned by Wednesday.
+    </div>
+
+</body>
+</html>
