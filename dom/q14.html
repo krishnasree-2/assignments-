@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Todo List</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+
+    input, button {
+      padding: 10px;
+      margin: 5px 0;
+    }
+
+    #taskList {
+      margin-top: 20px;
+    }
+
+    .task-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f2f2f2;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Enhanced Todo List App</h2>
+
+  <!-- Input field to add tasks -->
+  <input type="text" id="taskInput" placeholder="Enter a new task">
+
+  <!-- Add task button -->
+  <button id="addBtn">Add Task</button>
+
+  <br><br>
+
+  <!-- Search bar -->
+  <input type="text" id="searchInput" placeholder="Search tasks...">
+
+  <!-- Task list container -->
+  <div id="taskList"></div>
+
+  <script>
+    // -----------------------------------
+    //  Retrieve tasks from localStorage
+    // -----------------------------------
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    // DOM elements
+    const taskInput = document.getElementById("taskInput");
+    const searchInput = document.getElementById("searchInput");
+    const taskList = document.getElementById("taskList");
+    const addBtn = document.getElementById("addBtn");
+
+    // -----------------------------------
+    //  Function to save to localStorage
+    // -----------------------------------
+    function saveTasks() {
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+
+    // -----------------------------------
+    //  Function to display tasks
+    // -----------------------------------
+    function displayTasks(filteredTasks = tasks) {
+      taskList.innerHTML = "";
+
+      filteredTasks.forEach(task => {
+        // Create task container div
+        const div = document.createElement("div");
+        div.className = "task-item";
+
+        // Create task text
+        const taskText = document.createElement("span");
+        taskText.textContent = task.text;
+
+        // Add completed styling if needed
+        if (task.completed) {
+          taskText.classList.add("completed");
+        }
+
+        // Button to toggle complete
+        const completeBtn = document.createElement("button");
+        completeBtn.textContent = task.completed ? "Undo" : "Complete";
+        completeBtn.onclick = () => {
+          task.completed = !task.completed;
+          saveTasks();
+          displayTasks();
+        };
+
+        // Button to delete task
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.onclick = () => {
+          tasks = tasks.filter(t => t.id !== task.id);
+          saveTasks();
+          displayTasks();
+        };
+
+        // Append items
+        div.appendChild(taskText);
+        div.appendChild(completeBtn);
+        div.appendChild(deleteBtn);
+
+        taskList.appendChild(div);
+      });
+    }
+
+    // -----------------------------------
+    //  Add new task
+    // -----------------------------------
+    addBtn.addEventListener("click", () => {
+      const text = taskInput.value.trim();
+
+      if (text === "") {
+        alert("Task cannot be empty!");
+        return;
+      }
+
+      const newTask = {
+        id: Date.now(),   // unique ID
+        text: text,
+        completed: false
+      };
+
+      tasks.push(newTask);
+      saveTasks();
+      displayTasks();
+
+      taskInput.value = "";
+    });
+
+    // -----------------------------------
+    //  Real-time Search
+    // -----------------------------------
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase();
+
+      const filtered = tasks.filter(task =>
+        task.text.toLowerCase().includes(query)
+      );
+
+      displayTasks(filtered);
+    });
+
+    // Display tasks on page load
+    displayTasks();
+  </script>
+
+</body>
+</html>
